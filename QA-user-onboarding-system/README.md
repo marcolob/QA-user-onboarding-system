@@ -1,5 +1,5 @@
-# QA User Onboarding System  
-Comprehensive QA testing project covering API validation, mock server simulation, and manual UI/UX test cases.
+# QA User Onboarding System - DEMO 
+Comprehensive QA testing project covering API validation using Postman, mock server simulation, and manual UI/UX test cases.
 
 ## 📌 Project Overview
 This project simulates a **User Onboarding System** similar to what is used in banking, fintech, compliance, and KYC-driven platforms.  
