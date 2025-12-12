@@ -1,0 +1,41 @@
+ID,Title,Type,Priority,Jira,Preconditions,Steps,Expected Result,Label
+TC-001,Create valid user,Functional,High,PERM-101,None,"1. Navigate to the 'Users' page; 2. Click 'Add New User'; 3. Fill in 'Name' with 'John Doe'; 4. Fill in 'Email' with 'john.doe@example.com'; 5. Select role if applicable; 6. Click 'Submit'; 7. Verify confirmation modal appears; 8. Check user appears in the users list with correct details","User created successfully; confirmation message appears; user listed with correct info",Users
+TC-002,Create user without email,Functional,High,PERM-102,None,"1. Navigate to 'Users' page; 2. Click 'Add New User'; 3. Fill in 'Name' only; 4. Leave 'Email' blank; 5. Click 'Submit'; 6. Observe validation error; 7. Ensure no new user added","Error 'Email required' displayed; user not created",Users
+TC-003,Create user with duplicate email,Functional,Medium,PERM-103,Existing user,"1. Navigate to 'Users'; 2. Click 'Add New User'; 3. Enter an existing email; 4. Click 'Submit'; 5. Observe message","Error 'Email already exists' displayed; user not created",Users
+TC-004,Update user name,Functional,Medium,PERM-104,Existing user,"1. Navigate to 'Users'; 2. Search and open user profile; 3. Edit 'Name'; 4. Click 'Save'; 5. Verify success message; 6. Refresh list","User name updated; visible in users list",Users
+TC-005,Update user email,Functional,Medium,PERM-105,Existing user,"1. Navigate to 'Users'; 2. Edit email field; 3. Save changes; 4. Check updated email in list","Email updated successfully; visible in users list",Users
+TC-006,Delete user,Functional,High,PERM-106,Existing user,"1. Navigate to 'Users'; 2. Select user; 3. Click 'Delete'; 4. Confirm in modal; 5. Verify removal from list","User deleted; confirmation shown",Users
+TC-007,Delete non-existent user,Functional,Medium,PERM-107,None,"1. Attempt to delete user with invalid ID; 2. Observe message","Error 'User not found' displayed; list unchanged",Users
+TC-008,Upload valid PDF document,Functional,High,PERM-108,Existing user,"1. Go to 'Documents'; 2. Click 'Upload'; 3. Select PDF file; 4. Choose user; 5. Submit; 6. Verify document appears in list","Document uploaded; visible in list; associated with correct user",Documents
+TC-009,Upload image document,Functional,Medium,PERM-109,Existing user,"1. Upload JPG/PNG file; 2. Associate with user; 3. Submit","Document uploaded successfully; visible in documents list",Documents
+TC-010,Upload document without user,Functional,High,PERM-110,None,"1. Click 'Upload'; 2. Select file without user; 3. Submit","Error 'User_id required'; document not created",Documents
+TC-011,Retrieve document valid,Functional,Medium,PERM-111,Document exists,"1. Open document details; 2. Verify file and user association","Document details correct; accessible for download",Documents
+TC-012,Retrieve document non-existent,Functional,Medium,PERM-112,None,"1. Attempt to access invalid document ID; 2. Observe error","Error 'Document not found'; list unchanged",Documents
+TC-013,Update document file name,Functional,Medium,PERM-113,Existing document,"1. Open document; 2. Edit file name; 3. Save changes; 4. Verify updated name","File name updated; reflected in list",Documents
+TC-014,Update non-existent document,Functional,Medium,PERM-114,None,"1. Attempt to update invalid document; 2. Submit","Error 'Document not found'",Documents
+TC-015,Delete document valid,Functional,Medium,PERM-115,Existing document,"1. Select document; 2. Click 'Delete'; 3. Confirm; 4. Verify removal","Document deleted; confirmation shown",Documents
+TC-016,Delete non-existent document,Functional,Medium,PERM-116,None,"1. Attempt deletion of invalid document; 2. Observe message","Error 'Document not found'; list unchanged",Documents
+TC-017,List all documents,Functional,Low,PERM-117,None,"1. Navigate to documents list; 2. Observe all entries","All documents displayed correctly",Documents
+TC-018,Start KYC valid,Functional,High,PERM-118,Existing user,"1. Navigate to KYC; 2. Select user; 3. Click 'Start KYC'; 4. Fill required fields; 5. Submit; 6. Check pending status","KYC started; status pending; visible in list",KYC
+TC-019,Start KYC non-existent user,Functional,High,PERM-119,None,"1. Start KYC with invalid user ID; 2. Submit","Error 'User not found'; no KYC created",KYC
+TC-020,Start KYC missing data,Functional,High,PERM-120,None,"1. Start KYC leaving mandatory fields blank; 2. Submit","Error 'Required fields missing'; KYC not created",KYC
+TC-021,Retrieve KYC valid,Functional,Medium,PERM-121,KYC pending,"1. Open KYC details; 2. Verify user and status","KYC details correct; status pending",KYC
+TC-022,Retrieve KYC non-existent,Functional,Medium,PERM-122,None,"1. Attempt to retrieve invalid KYC; 2. Observe error","Error 'KYC not found'",KYC
+TC-023,Finalize KYC approved,Functional,Medium,PERM-123,KYC pending,"1. Open KYC; 2. Click 'Approve'; 3. Confirm; 4. Verify status update","KYC status approved; visible in list",KYC
+TC-024,Finalize KYC rejected,Functional,Medium,PERM-124,KYC pending,"1. Open KYC; 2. Click 'Reject'; 3. Confirm; 4. Verify status update","KYC status rejected; visible in list",KYC
+TC-025,Finalize non-existent KYC,Functional,Medium,PERM-125,None,"1. Attempt to approve/reject invalid KYC; 2. Observe error","Error 'KYC not found'",KYC
+TC-026,List KYC users,Functional,Low,PERM-126,None,"1. Navigate to KYC list; 2. Observe all entries","All KYC records displayed",KYC
+TC-027,Filter KYC by pending,Functional,Low,PERM-127,None,"1. Navigate to KYC list; 2. Apply filter 'Pending'; 3. Verify list","Only pending KYC displayed",KYC
+TC-028,Integration user + document,Functional,High,PERM-128,Existing user,"1. Create user; 2. Upload document for that user; 3. Verify association","Document linked correctly to user",Integration
+TC-029,Integration user + KYC,Functional,High,PERM-129,Existing user,"1. Create user; 2. Start KYC for that user; 3. Verify status","KYC linked to user; status pending",Integration
+TC-030,Integration full flow,Functional,High,PERM-130,None,"1. Create user; 2. Upload document; 3. Start KYC; 4. Verify IDs and links","All steps succeed; all entities correctly linked",Integration
+TC-031,Delete user with documents,Functional,Medium,PERM-131,User with documents,"1. Attempt to delete user with documents; 2. Observe message","Error 'User has associated documents'; user not deleted",Users
+TC-032,Update KYC already finalized,Functional,Medium,PERM-132,KYC approved/rejected,"1. Attempt to change status; 2. Submit","Error 'KYC already finalized'; status unchanged",KYC
+TC-033,Upload invalid file type,Functional,Medium,PERM-133,None,"1. Upload .exe or unsupported file; 2. Submit","Error 'Invalid file type'; document not created",Documents
+TC-034,Retrieve documents filtered by user,Functional,Low,PERM-134,Existing documents,"1. Apply filter by user; 2. Verify list","Only documents for selected user displayed",Documents
+TC-035,Multi-step error scenario,Functional,High,PERM-135,None,"1. Create user; 2. Upload document with invalid user; 3. Start KYC with invalid user","User created; document/KYC fail with correct error messages",Integration
+TC-036,UI validation messages,Non-Functional,Medium,PERM-136,None,"1. Leave mandatory fields blank in user form; 2. Observe tooltips/messages","Validation messages displayed correctly; UX consistent",UI
+TC-037,Check responsive layout,Non-Functional,Medium,PERM-137,None,"1. Open UI in desktop, tablet, mobile sizes; 2. Observe layout and element alignment","UI adapts correctly; no broken layout",UI
+TC-038,Check error modals,Non-Functional,Medium,PERM-138,None,"1. Trigger validation errors; 2. Observe modals","Error modals displayed; close button works; messages readable",UI
+TC-039,Performance - load users list,Non-Functional,Medium,PERM-139,None,"1. Navigate to users list; 2. Measure loading time","List loads under expected threshold; no errors",Performance
+TC-040,Performance - upload document,Non-Functional,Medium,PERM-140,None,"1. Upload 5MB file; 2. Measure upload time and observe UI","Upload completes under threshold; UI responsive; document listed",Performance
